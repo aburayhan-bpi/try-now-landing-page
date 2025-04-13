@@ -17,7 +17,7 @@ const TopNav = () => {
           <div className="border border-gray-700 h-3"></div>
           <div className="flex items-center justify-center gap-2 text-gray-600">
             <AiOutlineMail />
-            <ps>admin@trynow.com</ps>
+            <p>admin@trynow.com</p>
           </div>
         </div>
       </div>

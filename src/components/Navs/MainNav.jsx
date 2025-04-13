@@ -3,6 +3,7 @@ import { CiShoppingBasket } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { IoSearch } from "react-icons/io5";
 import { MdFavoriteBorder } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const MainNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,16 +34,19 @@ const MainNav = () => {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50 bg-white">
+    // sticky top-0 z-50
+    <div className=" bg-white">
       <div className="max-w-screen-xl mx-auto px-4 xl:px-0 py-4 md:flex items-center justify-between gap-4">
         {/* Company Logo */}
-        <div className="flex-shrink-0 mb-4 md:mb-0">
-          <img
-            className="w-36 mx-auto md:mx-0"
-            src="./images/company_logo.png"
-            alt="Try Now"
-          />
-        </div>
+        <Link to="/">
+          <div className="flex-shrink-0 mb-4 md:mb-0">
+            <img
+              className="w-36 mx-auto md:mx-0"
+              src="./images/company_logo.png"
+              alt="Try Now"
+            />
+          </div>
+        </Link>
 
         {/* Category & Searchbar */}
         <div className="flex-1 min-w-0 mx-0 md:mx-4">

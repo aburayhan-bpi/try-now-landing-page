@@ -1,8 +1,9 @@
 import React from "react";
-import Home from "../pages/Home/Home";
 import TopNav from "../components/Navs/TopNav";
 import MainNav from "../components/Navs/MainNav";
 import CategoryNav from "../components/Navs/CategoryNav";
+import { Outlet } from "react-router-dom";
+import ResponsiveNavbar from "../components/Navs/ResponsiveNavbar";
 
 const Layout = () => {
   return (
@@ -17,11 +18,12 @@ const Layout = () => {
       </section>
       {/* Cateogry based Nav Section */}
       <section>
-        <CategoryNav />
+        {/* <CategoryNav /> */}
+        <ResponsiveNavbar/>
       </section>
       {/* Main Section */}
       <main>
-        <Home />
+        <Outlet></Outlet>
       </main>
     </div>
   );
