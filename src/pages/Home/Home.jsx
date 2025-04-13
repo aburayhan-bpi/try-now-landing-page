@@ -1,9 +1,10 @@
 import React from "react";
+import EyeglassSlider from "../../components/EyeglassSlider";
 
 const Home = () => {
   return (
-    <div>
-      <h2>This is Landing page of Try Now</h2>
+    <div className="py-7">
+      <EyeglassSlider />
     </div>
   );
 };
