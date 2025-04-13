@@ -3,6 +3,12 @@ import EyeglassSlider from "../../components/EyeglassSlider";
 import SectionHeading from "../../components/common/SectionHeading";
 import ProductCard from "../../components/common/ProductCard";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import AllProductSlide from "./Slides/AllProductSlide";
+import BestSellProductSlide from "./Slides/BestSellProductSlide";
+import DiscountedProductSlide from "./Slides/DiscountedProductSlide";
+import NewProductSlide from "./Slides/NewProductSlide";
+import { TbCoin, TbTruckDelivery } from "react-icons/tb";
+import { CiDiscount1 } from "react-icons/ci";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -152,7 +158,6 @@ const Home = () => {
       <div className="py-7">
         <EyeglassSlider />
       </div>
-
       {/* Eyeglasses Category Section */}
       <div className="mb-14">
         <SectionHeading title={"Eyeglasses Categories"} />
@@ -226,9 +231,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* Flash Sale Section */}
-      <div className="mb-40">
+      <div className="mb-10">
         <SectionHeading title={"Flash Sale"} />
         {/* Timer */}
         <div className="md:flex items-center justify-between max-w-2xl rounded-full border px-6 py-4">
@@ -270,8 +274,8 @@ const Home = () => {
             {products.map((product) => (
               <div
                 key={product._id}
-                className="w-full flex-shrink-0 px-3"
-                style={{ width: `${100 / slidesToShow}%` }}
+                className="w-64 h-full flex-shrink-0 px-3"
+                // style={{ width: `${100 / slidesToShow}%` }}
               >
                 <ProductCard product={product} />
               </div>
@@ -281,23 +285,108 @@ const Home = () => {
           {/* Navigation Arrows */}
           {totalSlides > 1 && (
             <>
-              <button
+              <div
                 onClick={prevSlide}
-                className="absolute left-0 top-1/2 -translate-y-1/2 p-3 rounded-full z-10 transition-all duration-300 hover:scale-150"
+                className="absolute left-0 top-1/2 cursor-pointer -translate-y-1/2 p-3 rounded-full z-10 transition-all duration-300 hover:scale-150"
                 aria-label="Previous slide"
               >
                 <SlArrowLeft />
-              </button>
-              <button
+              </div>
+              <div
                 onClick={nextSlide}
-                className="absolute right-0 top-1/2 -translate-y-1/2  p-3 rounded-full z-10 transition-all duration-300 hover:scale-150"
+                className="absolute right-0 top-1/2 cursor-pointer -translate-y-1/2  p-3 rounded-full z-10 transition-all duration-300 hover:scale-150"
                 aria-label="Next slide"
               >
                 <SlArrowRight />
-              </button>
+              </div>
             </>
           )}
         </div>
+      </div>
+      {/* All Products */}
+      <SectionHeading title={"All Products"} />
+      <div>
+        <AllProductSlide products={products} />
+      </div>
+      {/* Best Selling */}
+      <SectionHeading title={"Best Selling"} />
+      <div>
+        <BestSellProductSlide products={products} />
+      </div>
+      {/* Discounted Offer */}
+      <SectionHeading title={"Discounted Offer"} />
+      <div>
+        <DiscountedProductSlide products={products} />
+      </div>
+      {/* New Arrival */}
+      <SectionHeading title={"New Arrival"} />
+      <div>
+        <NewProductSlide products={products} />
+      </div>
+      {/* Top Brands */}
+      <SectionHeading title={"Top Brands"} />
+      <div className="flex flex-wrap items-center justify-evenly mb-10">
+        <img
+          className="w-28 grayscale opacity-60"
+          src="https://i.ibb.co/kgPNpf4W/police.png"
+          alt=""
+        />
+        <img
+          className="w-28 grayscale opacity-60"
+          src="https://i.ibb.co/1f0bJ2q9/rayban.png"
+          alt=""
+        />
+        <img
+          className="w-28 grayscale opacity-60"
+          src="https://i.ibb.co/zW6bpxDR/gucci.png"
+          alt=""
+        />
+        <img
+          className="w-28 grayscale opacity-60"
+          src="https://i.ibb.co/bjpFvxjY/boss.png"
+          alt=""
+        />
+        <img
+          className="w-28 grayscale opacity-60"
+          src="https://i.ibb.co/tTmQyntM/carrera.png"
+          alt=""
+        />
+        <img
+          className="w-28 grayscale opacity-60"
+          src="https://i.ibb.co/HD37Bzsw/icarus-eyewear.png"
+          alt=""
+        />
+      </div>
+
+      {/* Newsletter Section */}
+      <div className="mb-10">
+        <div className="flex items-center justify-between bg-black text-white px-10 py-5 rounded-full">
+          <h2 className="text-2xl font-semibold w-full hidden md:block">
+            Join Our Newsletter
+          </h2>
+          <div className="relative w-full">
+            <input
+              className="rounded-full p-3 w-full text-black outline-none px-4"
+              type="email"
+              required
+            />
+            <button className="absolute top-2 right-4 rounded-full px-5 py-1 bg-black text-white">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* Extra Text */}
+      <div className="flex items-center justify-between mb-40">
+        <p className="flex items-center justify-center gap-3">
+          <TbTruckDelivery /> <span>Free delivery for order over $70</span>
+        </p>
+        <p className="flex items-center justify-center gap-3">
+          <CiDiscount1 /> <span>Daily Mega Discounts</span>
+        </p>
+        <p className="flex items-center justify-center gap-3">
+          <TbCoin /> <span>Best price on the market</span>
+        </p>
       </div>
     </div>
   );

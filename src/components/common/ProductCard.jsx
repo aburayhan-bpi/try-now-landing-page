@@ -2,9 +2,9 @@ import React from "react";
 import { IoStar } from "react-icons/io5";
 
 const ProductCard = (product = {}) => {
-  console.log(product);
+
   return (
-    <div>
+    <div className="flex flex-col h-full">
       <div className="relative border w-full h-full px-2 py-4 group rounded-lg transition duration-300">
         <div className="bg-gray-200 flex items-center justify-center h-64 p-4 rounded-tl-full rounded-tr-full transition duration-300 group-hover:bg-sky-100">
           <img
@@ -16,7 +16,7 @@ const ProductCard = (product = {}) => {
         <div className="absolute top-10 left-0 bg-black text-white px-5 py-2 rounded-lg">
           {product?.product?.discount} OFF
         </div>
-        <div className="mt-3">
+        <div className="mt-3 flex flex-col justify-between flex-grow">
           <h2 className="font-medium text-lg">{product?.product?.title}</h2>
           <p className="text-green-500 font-medium capitalize">
             {product?.product?.availability}
